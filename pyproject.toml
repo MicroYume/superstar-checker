@@ -1,0 +1,26 @@
+[project]
+name = "superstar-checker"
+version = "0.1.0"
+description = "超星学习通 MCP server — 纯 HTTP 实现的课程/章节/刷课/作业/资料工具"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp[cli]>=1.0.0,<2",
+    "httpx>=0.27",
+    "beautifulsoup4>=4.12",
+    "pycryptodome>=3.20",
+    "fonttools>=4.38",
+]
+
+[project.scripts]
+superstar-checker-mcp = "superstar_checker.server:main"
+superstar-checker = "superstar_checker.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+superstar_checker = ["data/*.json"]
